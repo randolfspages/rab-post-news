@@ -13,7 +13,7 @@ const header = (
 )
 
 const footer = (
-  <div>Footer</div>
+  <div className="text-sm text-center">news-range platform. developed by: &Gamma;&Delta;&Beta;</div>
 )
 
 export default function RootLayout({ children }: { children: ReactNode }) {
