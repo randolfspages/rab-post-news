@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { buttonVariants } from '../ui/button'
+import { Button, buttonVariants } from '../ui/button'
 import {RegisterLink, LoginLink, LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 
@@ -22,8 +22,8 @@ export default async function Navbar() {
         </div>
         <div>
             { user ? (
-            <div>
-                {/* <p>{user?.email ?? 'User'}</p> */}
+            <div className='flex items-center gap-2'>
+                <p className='text-xs'>Akwaaba! {user.given_name}</p>
                 <LogoutLink className={buttonVariants({variant:'secondary'})}>Logout</LogoutLink>
             </div>
         ): (

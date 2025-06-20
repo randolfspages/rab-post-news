@@ -3,6 +3,8 @@ import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import { PrismaClient } from '@/lib/generated/prisma';
 //import { prisma } from '@/app/utils/db'
 import { redirect } from 'next/navigation';
+import { revalidatePath } from "next/cache";
+
 
 const prisma = new PrismaClient()
 
@@ -29,8 +31,6 @@ await prisma.blogPost.create({
     authorName: user?.given_name as string
   }
 })
-
+  revalidatePath("/");  
   return redirect('/dashboard') 
-    
-
 }

@@ -4,9 +4,11 @@ import BlogPostCard from './general/BlogPostCard';
 import { Skeleton } from './ui/skeleton';
 //import prisma from '@/app/utils/db'
 
+export const revalidate = 60;
 
 
 const prisma = new PrismaClient();
+await new Promise((resolve) => setTimeout(resolve, 2000));
 
 interface BlogPost {
   id: string;
